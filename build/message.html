@@ -1,20 +1,103 @@
-<!--
+<!DOCTYPE html>
 
-Content
-- - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<html lang="en">
+<!-- templated based on HTML5 Boilderplate: https://github.com/h5bp/html5-boilerplate/blob/master/index.html -->
+
+<head>
+  <meta charset="utf-8" />
+  <title>Building Bridges UTD</title>
+  <!-- Usage: <title>XXX | Building Bridges UTD</title> -->
+  <meta name="description" content="Online information about the Building Bridges student government coalition, running in Spring 2014 at the University of Texas-Dallas." />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Styles
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <link rel="stylesheet" href="lib/bootstrap-sass-3.1.1/vendor/assets/stylesheets/bootstrap.css" />
+  <link rel="stylesheet" href="static/css/angersBridge.css" />
+
+</head>
+
+<body class="container">
+  <!-- Header
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <header class="mainHeader">
+    <h1 class="title">
+      <img class="logo" src="static/img/logo.jpg" alt="Brooks &amp; Bank: Building Bridges" />
+    </h1>
+
+    <nav class="mainMenu">
+      <ul class="nav nav-pills nav-justified">
+        <!-- Usage: <li class="active"><a href="XXX.html">XXX</a></li> -->
+        <li><a href="index.html">Home</a></li>
+        <li><a href="message.html">Message</a></li>
+        <li><a href="senators.html">Senators</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Content
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <article class="mainContent row">
+
+    <!-- TODO: set size and position -->
+    <!--
+    <img src="static/img/Nancy-and-Brooke.jpg" alt="Nancy and Brooke" />
+    -->
+
+    <div class="senator col-md-6">
+      <ul class="senator-label">
+        <li class="senator-name">Brooke Knudston</li>
+        <li class="senator-position">President</li>
+        <li class="senator-major">Political Science &amp; Business Administration</li>
+        <li class="senator-class">2016</li>
+      </ul>
+
+      <p>
+        Hello Comets, my name is Brooke Knudtson and I am a Sophomore Political Science and Business Administration Major from Amarillo, Texas. When I came to UT Dallas, one of the first organizations I wanted to join was Student Government. Immediately, I was immersed into the organization life of UT Dallas. I am currently the Technology Committee Chair for Student Government, Chief Recruitment Officer for Kappa Alpha Theta, a UT Dallas Cheerleader, Discipline Committee member, the Public Relations head of the John Marshall Pre-Law Society, and a Model United Nations Delegate. I also work in the Department of Community Engagement at UT Dallas as a G-Force Mentor for high school students.
+      </p>
+
+      <p>
+        I am running for Student Body President along with a team of excellent Senators. Together, we make up the Building Bridges ticket. This theme of building bridges relates to our three major platform points: if elected, we will Build Spirit; Build the Community; and Build Traditions. I believe that these three points are vital to serve the collective interests of the student body and, as the University grows larger, to ensure that we remain closely connected. With your support and your vote, the Building Bridges team can bridge all the gaps between students to build a better UT Dallas for next year, and for the future.
+      </p>
+
+    </div>
+
+    <div class="senator col-md-6">
+      <ul class="senator-label">
+        <li class="senator-name">Nancy Fairbank</li>
+        <li class="senator-position">President</li>
+        <li class="senator-major">Political Science</li>
+        <li class="senator-class">2017</li>
+      </ul>
+
+      <p>
+        My name is Nancy Fairbank and I can’t believe it was only a year ago that I didn’t know how to WHOOSH. Having lived in Springfield, Missouri for the majority of my life, there were many new aspects of both Texan and UTDallas culture that I have been exposed to over the course of my freshman year at this University. I am an intended political science major who is involved in Model United Nations, the John Marshall Pre-Law Society, Ultimate Frisbee, the Ladies of Vision and Excellence group, founding a campus No Labels chapter, Intramural Sports and the McDermott Scholars program. I have also been serving in Student Government as a member of the Legislative Affairs Committee, where I have worked to develop events such as the Attorney Booth and Know Your Rights Day. 
+      </p>
+
+      <p>
+        As Vice President, I want to ensure that all Comets are heard. As UTDallas students, we revel in diversity – what makes us different is what makes us special. As our population expands, it is imperative that we maintain a spirited and tight-knit community so that our unique culture can continue to flourish. Brooke, myself, and the entire Building Bridges ticket want to bring more awareness to what Student Government can do to help YOU. Our goal is to serve the student body and ensure that your college experience is an excellent and memorable one. By connecting international students with natives, graduates with undergraduates, and current students with future Comets through the establishment of lasting traditions, our team will make UTD the best it can be. 
+      </p>
+
+    </div>
+
+  </article>
+
+  <!-- Footer
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <footer class="mainFooter">
+    <p>Made in Sweden with &lt;3 for my sister Nancy</p>
+    <p><small><a href="https://github.com/jtfairbank/UTD-Student-Elections-2014/blob/master/COPYRIGHT.md">Copyright</a></small></p>
+  </footer>
 
 
-Brooke Knudston – President
+  <!-- Scripts
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <script src="lib/jquery/jquery-2.1.0.min.js"></script>
+  <script src="static/js/Senator.js"></script>
+  <script src="static/js/bigFourBridge.js"></script>
 
-Hello Comets, my name is Brooke Knudtson and I am a Sophomore Political Science and Business Administration Major from Amarillo, Texas. When I came to UT Dallas, one of the first organizations I wanted to join was Student Government. Immediately, I was immersed into the organization life of UT Dallas. I am currently the Technology Committee Chair for Student Government, Chief Recruitment Officer for Kappa Alpha Theta, a UT Dallas Cheerleader, Discipline Committee member, the Public Relations head of the John Marshall Pre-Law Society, and a Model United Nations Delegate. I also work in the Department of Community Engagement at UT Dallas as a G-Force Mentor for high school students.
+  <!-- TODO: google analytics -->
+</body>
 
-I am running for Student Body President along with a team of excellent Senators. Together, we make up the Building Bridges ticket. This theme of building bridges relates to our three major platform points: if elected, we will Build Spirit; Build the Community; and Build Traditions. I believe that these three points are vital to serve the collective interests of the student body and, as the University grows larger, to ensure that we remain closely connected. With your support and your vote, the Building Bridges team can bridge all the gaps between students to build a better UT Dallas for next year, and for the future.
-
-
-Nancy Fairbank – Vice President
-
-My name is Nancy Fairbank and I can’t believe it was only a year ago that I didn’t know how to WHOOSH. Having lived in Springfield, Missouri for the majority of my life, there were many new aspects of both Texan and UTDallas culture that I have been exposed to over the course of my freshman year at this University. I am an intended political science major who is involved in Model United Nations, the John Marshall Pre-Law Society, Ultimate Frisbee, the Ladies of Vision and Excellence group, founding a campus No Labels chapter, Intramural Sports and the McDermott Scholars program. I have also been serving in Student Government as a member of the Legislative Affairs Committee, where I have worked to develop events such as the Attorney Booth and Know Your Rights Day. 
-
-As Vice President, I want to ensure that all Comets are heard. As UTDallas students, we revel in diversity – what makes us different is what makes us special. As our population expands, it is imperative that we maintain a spirited and tight-knit community so that our unique culture can continue to flourish. Brooke, myself, and the entire Building Bridges ticket want to bring more awareness to what Student Government can do to help YOU. Our goal is to serve the student body and ensure that your college experience is an excellent and memorable one. By connecting international students with natives, graduates with undergraduates, and current students with future Comets through the establishment of lasting traditions, our team will make UTD the best it can be. 
-
--->
+</html>
