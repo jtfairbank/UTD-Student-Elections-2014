@@ -66,9 +66,9 @@ Senator.importAllFromCSV = function(csv) {
  *
  *   - .senator
  *       - .sentator-label
- *           * .senator-class
- *           * .senator-major
  *           * .senator-name
+ *           * .senator-major
+ *           * .senator-class
  *
  *       * .senator-involvement
  *       * .senator-goals
@@ -78,8 +78,8 @@ Senator.prototype.getOverview = function() {
   var $overview = $(
     '<div class="senator">' +
       this.getLabel() +
-      '<div class="senator-involvement>'+this.involvement+'</span>' +
-      'div class="senator-goals>'+this.goals+'</span>' +
+      '<div class="senator-involvement">'+this.involvement+'</span>' +
+      'div class="senator-goals">'+this.goals+'</span>' +
     '</div>'
   );
 
@@ -89,9 +89,9 @@ Senator.prototype.getOverview = function() {
 Senator.prototype.getLabel = function() {
   var $label = $(
     '<div class="senator-label">' +
-      '<span class="senator-class>'+this.class+'</span>' +
-      '<span class="senator-major>'+this.major+'</span>' +
-      '<span class="senator-name>'+this.name+'</span>' +
+      '<span class="senator-name">'+this.name+'</span>' +
+      '<span class="senator-major">'+this.major+'</span>' +
+      '<span class="senator-class">'+this.class+'</span>' +
     '</div>'
   );
 
