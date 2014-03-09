@@ -1,0 +1,36 @@
+/* https://en.wikipedia.org/wiki/Angers_Bridge */
+
+
+/* Colors
+ * ------------------------------------------------------
+ * Based on the logo.
+ *
+ *   * Green:                `#008C52`
+ *   * Orange (dark):        `#F05A00`
+ *   * Orange (light):       `#FAA00A`
+ */
+
+
+/* Sitewide
+ * ========================================================================== */
+ 
+.mainHeader { }
+  .mainHeader .title {
+    text-align: center;
+  }
+  .mainHeader .title .logo {
+    width: 500px;
+  }
+
+.mainContent {
+  padding: 20px;
+  border-top: 5px solid #008C52;
+  border-bottom: 5px solid #008C52;
+}
+
+.mainFooter {
+  margin-top: 20px;
+}
+  .mainFooter > p {
+    text-align: center;
+  }
