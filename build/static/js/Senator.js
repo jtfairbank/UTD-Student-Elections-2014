@@ -37,16 +37,33 @@ Senator.template = {
  *     data
  *     ...
  */
-Senator.importAllFromCSV = function(csv) {
+Senator.importAllFromCSV = function(doc) {
   var senators = [];
 
-  var senatorsData = csv.split('\n');
-  for (var i = 0; i < senatorsData.length; i++) {
-    var data = senatorsData[i].split('');
-    var keys = Senator.template.keys();
+  var senatorsCsv = $.csv.toArrays(doc);
+  var warn = function(line) {
+    console.warn('Malformed Data on line '+line);
+    console.log(data);
+    console.log(keys);
+    // TODO: automated bug report
+  };
+  var i = 1; // SKIP THE FIRST LINE OF HEADER DATA
+  for (; i < senatorsCsv.length; i++) {
+    var keys = Object.keys(Senator.template);
+    var data = senatorsCsv[i];
+
+    if (data.length < keys.length || data.length > keys.length+1) {
+      warn(i);
+    } else if (data.length == keys.length+1) {
+      if (data[data.length-1].replace(/\s+/, '') === "") {
+        data.pop();
+      } else {
+        warn(i);
+      }
+    }
 
     var properties = {};
-    for (var j = 0; j < senator; j++) {
+    for (var j = 0; j < data.length; j++) {
       properties[keys[j]] = data[j];
     }
 
@@ -77,7 +94,7 @@ Senator.importAllFromCSV = function(csv) {
 Senator.prototype.getOverview = function() {
   var $overview = $(
     '<div class="senator">' +
-      this.getLabel() +
+      this.getLabel().html() +
       '<div class="senator-involvement">'+this.involvement+'</span>' +
       'div class="senator-goals">'+this.goals+'</span>' +
     '</div>'

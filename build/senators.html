@@ -39,30 +39,21 @@
   <!-- Content
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <article class="mainContent row">
-    <!-- Usage: replace awesome bridge with content (do I have to?) -->
-    <pre class="col-md-10 col-md-offset-1">
-                                               ^^
-          ^^      ..                                       ..
-                  []                                       []
-                .:[]:_          ^^                       ,:[]:.
-              .: :[]: :-.                             ,-: :[]: :.
-            .: : :[]: : :`._                       ,.': : :[]: : :.
-          .: : : :[]: : : : :-._               _,-: : : : :[]: : : :.
-      _..: : : : :[]: : : : : : :-._________.-: : : : : : :[]: : : : :-._
-      _:_:_:_:_:_:[]:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:[]:_:_:_:_:_:_
-      !!!!!!!!!!!![]!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![]!!!!!!!!!!!!!
-      ^^^^^^^^^^^^[]^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[]^^^^^^^^^^^^^
-                  []                                       []
-                  []                                       []
-                  []                                       []
-       ~~^-~^_~^~/  \~^-~^~_~^-~_^~-^~_^~~-^~_~^~-~_~-^~_^/  \~^-~_~^-~~- 
-      ~ _~~- ~^-^~-^~~- ^~_^-^~~_ -~^_ -~_-~~^- _~~_~-^_ ~^-^~~-_^-~ ~^
-         ~ ^- _~~_-  ~~ _ ~  ^~  - ~~^ _ -  ^~-  ~ _  ~~^  - ~_   - ~^_~
-           ~-  ^_  ~^ -  ^~ _ - ~^~ _   _~^~-  _ ~~^ - _ ~ - _ ~~^ -
-      jgs     ~^ -_ ~^^ -_ ~ _ - _ ~^~-  _~ -_   ~- _ ~^ _ -  ~ ^-
-                  ~^~ - _ ^ - ~~~ _ - _ ~-^ ~ __- ~_ - ~  ~^_-
-                      ~ ~- ^~ -  ~^ -  ~ ^~ - ~~  ^~ - ~
-    </pre>
+    <div id="senators" class="senators">
+
+    </div>
+
+    <div id="contentLoadFailure" class="alert alert-danger">
+      <p>
+        Unfortunately we seem to be having technical issues and cannot load the
+        senator's data.
+      </p>
+      <p>
+        <a href="mailto:buildbridgesutd@gmail.com?subject=Website Error - Building Bridges UTD">
+        Please email us</a> to let us know about the issue. :)
+      </p>
+    </div>
+
   </article>
 
   <!-- Footer
@@ -76,8 +67,32 @@
   <!-- Scripts
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <script src="lib/jquery/jquery-2.1.0.min.js"></script>
+  <script src="lib/jquery-csv/src/jquery.csv.js"></script>
   <script src="static/js/Senator.js"></script>
   <script src="static/js/bigFourBridge.js"></script>
+
+  <script>
+    $(function() {
+      $.get("static/data/senators.csv")
+        .done(function(senatorsCSV) {
+          var senators = Senator.importAllFromCSV(senatorsCSV);
+
+          for (var i = 0; i < senators.length; i++) {
+            var senator = senators[i];
+            $("#senators").append(senator.getOverview());
+          }
+
+          // shown by default- failsafe
+          $("#senators").show();
+        })
+
+        .fail(function() {
+          $("#senators").hide();
+          $("#contentLoadFailure").show();
+          // TODO: automated bug report
+        });
+    });
+  </script>
 
   <!-- TODO: google analytics -->
 </body>

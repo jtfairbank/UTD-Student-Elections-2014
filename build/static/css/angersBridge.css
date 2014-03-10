@@ -1,6 +1,9 @@
 /* https://en.wikipedia.org/wiki/Angers_Bridge */
 
 
+/* General
+ * ========================================================================== */ 
+
 /* Colors
  * ------------------------------------------------------
  * Based on the logo.
@@ -9,6 +12,13 @@
  *   * Orange (dark):        `#F05A00`
  *   * Orange (light):       `#FAA00A`
  */
+
+/* Bootstrap Overrides
+ * ------------------------------------------------------ */
+
+.alert:last-child {
+  margin-bottom: 0;
+}
 
 
 /* Sitewide
