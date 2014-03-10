@@ -21,3 +21,9 @@ A SASS flavor of bootstrap maintianed by the bootstrap team.
 **Install:** download the latest copy of the bootstrap project from
 [getbootstrap.com], then build the sass file (output css should be in the same
 directory).  More instructions are in their README.
+
+### Doodle Social Media Icons ###
+
+Icons taken with permission from (findicons.com)[http://findicons.com/pack/60/doodle].
+
+Thanks to [Spoon Graphics](http://blog.spoongraphics.co.uk/).

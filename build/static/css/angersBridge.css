@@ -13,6 +13,12 @@
  *   * Orange (light):       `#FAA00A`
  */
 
+/* Icons
+ * ------------------------------------------------------ */
+.icon {
+  width: 32px;
+}
+
 /* Bootstrap Overrides
  * ------------------------------------------------------ */
 
@@ -38,9 +44,10 @@
   border-bottom: 5px solid #008C52;
 }
 
-.mainFooter {
-  margin-top: 20px;
-}
+.mainFooter { }
   .mainFooter > p {
     text-align: center;
+  }
+  .mainFooter .sharing {
+    margin-bottom: 20px;
   }
