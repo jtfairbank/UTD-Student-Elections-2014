@@ -36,9 +36,9 @@
 
   <!-- Content
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <article class="mainContent row">
+  <article class="mainContent">
     <div id="senators" class="senators">
-
+      <!-- content filled by js, see inline script below -->
     </div>
 
     <div id="contentLoadFailure" class="alert alert-danger error-condition">
@@ -83,6 +83,7 @@
       $.get("static/data/senators.csv")
         .done(function(senatorsCSV) {
           var senators = Senator.importAllFromCSV(senatorsCSV);
+          senators = senators.sort(Senator.compareClassThenName);
 
           for (var i = 0; i < senators.length; i++) {
             var senator = senators[i];

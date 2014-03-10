@@ -82,23 +82,31 @@ Senator.importAllFromCSV = function(doc) {
  * key:  - components, * data container
  *
  *   - .senator
- *       - .sentator-label
- *           * .senator-name
- *           * .senator-major
- *           * .senator-class
+ *       - .senator-profile-wrapper
+ *           * .senator-profile
  *
- *       * .senator-involvement
- *       * .senator-goals
+ *       - .senator-details
+ *           * .senator-involvement
+ *           * .senator-goals
+ *
+ *              - .sentator-label
+ *                  * .senator-name
+ *                  * .senator-major
+ *                  * .senator-class
  */
 
 Senator.prototype.getOverview = function() {
   var $overview = $(
-    '<div class="senator">' +
-      this.getLabel().html() +
-      '<div class="senator-involvement">'+this.involvement+'</span>' +
-      'div class="senator-goals">'+this.goals+'</span>' +
+    '<div class="senator row">' +
+      '<div class="senator-profile-wrapper col-md-offset-1 col-md-3"></div>' +
+      '<div class="senator-details col-md-7">' +
+        '<p class="senator-involvement">'+this.involvement+'</p>' +
+        '<p class="senator-goals">'+this.goals+'</p>' +
+      '</div>' +
     '</div>'
   );
+  $overview.find(".senator-profile-wrapper").append(this.getProfile());
+  $overview.find(".senator-details").append(this.getLabel());
 
   return $overview;
 };
@@ -106,11 +114,39 @@ Senator.prototype.getOverview = function() {
 Senator.prototype.getLabel = function() {
   var $label = $(
     '<div class="senator-label">' +
-      '<span class="senator-name">'+this.name+'</span>' +
-      '<span class="senator-major">'+this.major+'</span>' +
-      '<span class="senator-class">'+this.class+'</span>' +
+      '<p class="senator-name">'+this.name+'</p>' +
+      '<p class="senator-major">'+this.major+'</p>' +
+      '<p class="senator-class"><small>'+this.class+'</small></p>' +
     '</div>'
   );
 
   return $label;
+};
+
+Senator.prototype.getProfile = function() {
+  $profile = $('<img class="senator-profile" src="static/img/senator/'+this.name+'.jpg" alt="'+this.name+'\'s Profile Image" />');
+
+  return $profile;
+};
+
+
+/* Comparison
+ * ------------------------------------------------------ */
+
+/* ### Compare Class Then Name ###
+ *
+ * Example:
+ *
+ * 2015 - Andrew Parker
+ * 2015 - Zach Stokes
+ * 2016 - Jessica Mea
+ * 2017 - Andrew Whiteis
+ * 2017 - Pramukh Atluri
+ */
+Senator.compareClassThenName = function(a, b) {
+  if (a.class < b.class || (a.class == b.class && a.name < b.name)) {
+    return -1;
+  } else {
+    return 1;
+  }
 };

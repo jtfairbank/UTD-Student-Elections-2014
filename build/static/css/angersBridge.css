@@ -40,7 +40,8 @@
     text-align: center;
   }
   .mainHeader .title .logo {
-    width: 500px;
+    /* selected to make the BB-circle match the senator's circular profile images */
+    height: 200px;
   }
 
 .mainContent {
@@ -70,8 +71,51 @@
  * ------------------------------------------------------
  * Set a min height to prevent a 'flash of no content' before the data loads,
  * where the footer is right next to the header.
+ *
+ * **Layout (Based On Senator.js)**
+ *
+ * key:  - components, * data container
+ *
+ * - .senators
+ *
+ *   - .senator
+ *       - .senator-profile-wrapper
+ *           * .senator-profile
+ *
+ *       - .senator-details
+ *           * .senator-involvement
+ *           * .senator-goals
+ *
+ *              - .sentator-label
+ *                  * .senator-name
+ *                  * .senator-major
+ *                  * .senator-class
  */
 .senators {
   min-height: 600px; /* TODO: actually mesaure the senators layout when its doen and use that height */
 }
 
+
+.senator {
+  margin-bottom: 20px;
+}
+  .senator .senator-details {
+    padding-top: 25px;
+  }
+
+.senator-profile {
+  max-height: 200px;
+  max-width: 200px;
+  border-radius: 200px;
+
+  margin-bottom: 10px;
+}
+
+
+.senator-label {
+  display: block;
+  text-align: center;
+}
+  .senator-label p {
+    margin-bottom: 0;
+  }
