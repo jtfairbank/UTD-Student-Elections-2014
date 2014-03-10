@@ -19,9 +19,14 @@
   width: 32px;
 }
 
+/* Error Conditions
+ * ------------------------------------------------------ */
+ .error-condition {
+  display: none;
+ }
+
 /* Bootstrap Overrides
  * ------------------------------------------------------ */
-
 .alert:last-child {
   margin-bottom: 0;
 }
