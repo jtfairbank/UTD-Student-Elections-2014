@@ -54,5 +54,24 @@
     text-align: center;
   }
   .mainFooter .sharing {
+    text-align: center;
     margin-bottom: 20px;
   }
+    .mainFooter .sharing .nav {
+      display: inline-block;
+    }
+
+
+/* Modules
+ * ========================================================================== */
+
+
+/* Senators
+ * ------------------------------------------------------
+ * Set a min height to prevent a 'flash of no content' before the data loads,
+ * where the footer is right next to the header.
+ */
+.senators {
+  min-height: 600px; /* TODO: actually mesaure the senators layout when its doen and use that height */
+}
+
