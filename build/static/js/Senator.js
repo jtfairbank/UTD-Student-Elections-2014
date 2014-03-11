@@ -106,7 +106,7 @@ Senator.prototype.getOverview = function() {
     '</div>'
   );
   $overview.find(".senator-profile-wrapper").append(this.getProfile());
-  $overview.find(".senator-details").append(this.getLabel());
+  $overview.find(".senator-details").prepend(this.getLabel());
 
   return $overview;
 };
@@ -115,8 +115,10 @@ Senator.prototype.getLabel = function() {
   var $label = $(
     '<div class="senator-label">' +
       '<p class="senator-name">'+this.name+'</p>' +
-      '<p class="senator-major">'+this.major+'</p>' +
-      '<p class="senator-class"><small>'+this.class+'</small></p>' +
+      '<p>' +
+        '<span class="senator-major">'+this.major+',</span> ' +
+        '<span class="senator-class">'+this.class+'</span>' +
+      '</p>' +
     '</div>'
   );
 

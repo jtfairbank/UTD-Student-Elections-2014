@@ -110,9 +110,8 @@
 .senator {
   margin-bottom: 20px;
 }
-  .senator .senator-details {
-    padding-top: 25px;
-  }
+  .senator .senator-details { }
+
 
 .senator-profile {
   max-height: 200px;
@@ -126,9 +125,18 @@
 .senator-label {
   display: block;
   text-align: center;
+
+  margin-bottom: 10px;
 }
   .senator-label p {
     margin-bottom: 0;
+  }
+  .senator-label .senator-name {
+    font-weight: bold;
+  }
+  .senator-label .senator-major,
+  .senator-label .senator-class  {
+    font-style: italic;
   }
 
 
