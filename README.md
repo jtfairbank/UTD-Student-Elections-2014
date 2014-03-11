@@ -19,6 +19,12 @@ Icons taken with permission from [findicons.com](http://findicons.com/pack/60/do
 
 Thanks to [Spoon Graphics](http://blog.spoongraphics.co.uk/).
 
+### img ###
+
+Images from external sources (not the producing team or clients).
+
+  * [heart.png](https://en.wikipedia.org/wiki/File:Heart_coraz%C3%B3n.svg)
+
 ### jQuery ###
 
 The swiss army knife of webdev.

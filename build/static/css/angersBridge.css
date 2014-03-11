@@ -62,6 +62,14 @@
       display: inline-block;
     }
 
+  .mainFooter .signature,
+  .mainFooter .copyright  {
+    font-family: monospace;
+  }
+    .mainFooter .signature > img {
+      max-height: 32px;
+    }
+
 
 /* Modules
  * ========================================================================== */
