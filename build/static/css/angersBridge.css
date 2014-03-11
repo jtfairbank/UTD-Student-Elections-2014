@@ -49,6 +49,9 @@
   border-top: 5px solid #008C52;
   border-bottom: 5px solid #008C52;
 }
+  .mainContent > * {
+    margin-bottom: 20px;
+  }
 
 .mainFooter { }
   .mainFooter > p {
@@ -126,4 +129,31 @@
 }
   .senator-label p {
     margin-bottom: 0;
+  }
+
+
+/* Banner
+ * ------------------------------------------------------
+ * A call to action, designed to be used as a page's main heading.
+ */
+
+.banner {
+  margin-top: 0;
+
+  color: #008C52;
+  font-weight: 300;
+}
+  .banner .banner-em {
+    color: #F05A00;
+    font-style: normal;
+  }
+
+
+/* Mailchimp Signup Form
+ * ------------------------------------------------------ */
+.mc_embed_signup {
+  text-align: center;
+}
+  .mc_embed_signup .mc-embedded-subscribe-form {
+    display: inline-block;
   }
