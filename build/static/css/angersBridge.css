@@ -110,7 +110,6 @@
 .senator {
   margin-bottom: 20px;
 }
-  .senator .senator-details { }
 
 
 .senator-profile {
@@ -119,6 +118,11 @@
   border-radius: 200px;
 
   margin-bottom: 10px;
+}
+.senator-profile-large {
+  max-height: 400px;
+  max-width: 400px;
+  border-radius: 400px;
 }
 
 
@@ -138,6 +142,10 @@
   .senator-label .senator-class  {
     font-style: italic;
   }
+
+.senator-details {
+  text-align: justify;
+}
 
 
 /* Banner
