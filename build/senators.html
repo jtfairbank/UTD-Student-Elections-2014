@@ -38,6 +38,21 @@
   <!-- Content
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <article class="mainContent">
+    <div id="filters" class="filters">
+      <div id="filter-year" class="filter filter-year">
+        <span>Filter by year:</span>
+
+        <div class="btn-group">
+          <button data-year="all" type="button" class="btn btn-default active">All</button>
+          <button data-year="Class of 2017" type="button" class="btn btn-default">Freshmen</button>
+          <button data-year="Class of 2016" type="button" class="btn btn-default">Sophomores</button>
+          <button data-year="Class of 2015" type="button" class="btn btn-default">Juniors</button>
+          <button data-year="Graduate Student" type="button" class="btn btn-default">Grad Students</button>
+        </div>
+      </div>
+
+    </div>
+
     <div id="senators" class="senators">
       <!-- content filled by js, see inline script below -->
     </div>
@@ -80,25 +95,65 @@
 
   <script>
     $(function() {
+      'use strict';
+
+      var senators = [];
+
+
+      /* Setup
+       * ------------------------------------------------------ */
+      $("#filter-year .btn").on('click.removeClassActive', function() {
+        $("#filter-year .btn").removeClass('active');
+        $("#filter-year .btn").off('click.removeClassActive');
+      });
+
+
+      /* Load Senators
+       * ------------------------------------------------------ */
       $.get("static/data/senators.csv")
         .done(function(senatorsCSV) {
-          var senators = Senator.importAllFromCSV(senatorsCSV);
-          senators = senators.sort(Senator.compareClassThenName);
+          senators = Senator.importAllFromCSV(senatorsCSV);
+          senators = senators.sort(Senator.compareName);
 
           for (var i = 0; i < senators.length; i++) {
             var senator = senators[i];
-            $("#senators").append(senator.getOverview());
+            var $senator = senator.getOverview();
+            $senator.data('index', i);
+            $("#senators").append($senator);
           }
 
           // shown by default- failsafe
+          $("#filters").show();
           $("#senators").show();
         })
 
         .fail(function() {
+          $("#filters").hide();
           $("#senators").hide();
           $("#contentLoadFailure").show();
           // TODO: automated bug report
         });
+
+
+      /* Filters
+       * ------------------------------------------------------ */
+      $("#filter-year .btn").click(function() {
+        var year = $(this).data('year');
+
+        $(".senator").each(function() {
+          var i = $(this).data('index');
+          var senator = senators[i];
+
+          if (year == "all" || year == senator.year) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+
+      });
+
+
     });
   </script>
 

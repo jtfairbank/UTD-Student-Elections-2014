@@ -129,6 +129,19 @@ a {
 }
 
 
+/* Filters
+ * ------------------------------------------------------ */
+.filters {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.filter {
+  display: inline-block;
+}
+
+
 /* Mailchimp Signup Form
  * ------------------------------------------------------ */
 .mc_embed_signup {

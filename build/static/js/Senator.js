@@ -15,7 +15,7 @@ function Senator(properties) {
  * setting `Senator.template.XXX = ...`.
  */
 Senator.template = {
-    class: ""
+    year: ""
   , name: ""
   , major: ""
   , involvement: ""
@@ -28,7 +28,7 @@ Senator.template = {
  * 
  * Expected csv column format:
  *
- *     class, name, major, involvement, goals
+ *     year, name, major, involvement, goals
  *
  * Expected csv file layout:
  *
@@ -117,7 +117,7 @@ Senator.prototype.getLabel = function() {
       '<p class="senator-name">'+this.name+'</p>' +
       '<p>' +
         '<span class="senator-major">'+this.major+',</span> ' +
-        '<span class="senator-class">'+this.class+'</span>' +
+        '<span class="senator-class">'+this.year+'</span>' +
       '</p>' +
     '</div>'
   );
@@ -135,20 +135,20 @@ Senator.prototype.getProfile = function() {
 /* Comparison
  * ------------------------------------------------------ */
 
-/* ### Compare Class Then Name ###
- *
- * Example:
- *
- * 2015 - Andrew Parker
- * 2015 - Zach Stokes
- * 2016 - Jessica Mea
- * 2017 - Andrew Whiteis
- * 2017 - Pramukh Atluri
- */
-Senator.compareClassThenName = function(a, b) {
-  if (a.class < b.class || (a.class == b.class && a.name < b.name)) {
+Senator.compareProperty = function(a, b, prop) {
+  if (a[prop] < b[prop]) {
     return -1;
-  } else {
+  } else if (a[prop] > b[prop]) {
     return 1;
+  } else {
+    return 0;
   }
-};
+}
+
+Senator.compareYear = function(a, b) {
+  return Senator.compareProperty(a, b, 'year');
+}
+
+Senator.compareName = function(a, b) {
+  return Senator.compareProperty(a, b, 'name');
+}
