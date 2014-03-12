@@ -11,24 +11,20 @@
  *   * Green:                `#008C52`
  *   * Orange (dark):        `#F05A00`
  *   * Orange (light):       `#FAA00A`
- */
+ */ 
 
-/* Icons
- * ------------------------------------------------------ */
-.icon {
-  width: 32px;
-}
-
-/* Error Conditions
- * ------------------------------------------------------ */
- .error-condition {
-  display: none;
- }
 
 /* Bootstrap Overrides
  * ------------------------------------------------------ */
 .alert:last-child {
   margin-bottom: 0;
+}
+
+
+/* Icons
+ * ------------------------------------------------------ */
+.icon {
+  width: 32px;
 }
 
 
@@ -76,6 +72,40 @@
 
 /* Modules
  * ========================================================================== */
+
+
+/* Banner
+ * ------------------------------------------------------
+ * A call to action, designed to be used as a page's main heading.
+ */
+
+.banner {
+  margin-top: 0;
+
+  color: #008C52;
+  font-weight: 300;
+}
+  .banner .banner-em {
+    color: #F05A00;
+    font-style: normal;
+  }
+
+
+/* Error Conditions
+ * ------------------------------------------------------ */
+.error-condition {
+  display: none;
+}
+
+
+/* Mailchimp Signup Form
+ * ------------------------------------------------------ */
+.mc_embed_signup {
+  text-align: center;
+}
+  .mc_embed_signup .mc-embedded-subscribe-form {
+    display: inline-block;
+  }
 
 
 /* Senators
@@ -146,30 +176,3 @@
 .senator-details {
   text-align: justify;
 }
-
-
-/* Banner
- * ------------------------------------------------------
- * A call to action, designed to be used as a page's main heading.
- */
-
-.banner {
-  margin-top: 0;
-
-  color: #008C52;
-  font-weight: 300;
-}
-  .banner .banner-em {
-    color: #F05A00;
-    font-style: normal;
-  }
-
-
-/* Mailchimp Signup Form
- * ------------------------------------------------------ */
-.mc_embed_signup {
-  text-align: center;
-}
-  .mc_embed_signup .mc-embedded-subscribe-form {
-    display: inline-block;
-  }
