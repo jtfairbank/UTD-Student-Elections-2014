@@ -122,9 +122,9 @@
             $("#senators").append($senator);
           }
 
-          // shown by default- failsafe
           $("#filters").show();
           $("#senators").show();
+          $("#contentLoadFailure").hide();
         })
 
         .fail(function() {

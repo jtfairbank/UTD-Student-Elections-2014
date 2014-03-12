@@ -177,7 +177,7 @@ a {
  *                  * .senator-class
  */
 .senators {
-  min-height: 600px; /* TODO: actually mesaure the senators layout when its doen and use that height */
+  min-height: 600px;
 }
 
 
@@ -220,3 +220,4 @@ a {
 .senator-details {
   text-align: justify;
 }
+
