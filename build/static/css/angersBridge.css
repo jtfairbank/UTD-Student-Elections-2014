@@ -191,6 +191,19 @@ a {
   }
 
 
+/* Hearts
+ * ------------------------------------------------------ */
+.hearts {}
+
+.heart {
+  max-height: 32px;
+  max-width: 32px;
+  display: none;
+}
+  .heart:first-child {
+    display: inline;
+  }
+
 
 /* Mailchimp Signup Form
  * ------------------------------------------------------ */

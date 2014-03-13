@@ -81,8 +81,17 @@
       </ul>
     </nav>
 
-    <p class="signature">Made in Sweden with <img src="lib/img/heart.png" alt="&lt;3" /> for my sister Nancy</p>
-    <p class="copyright"><small><a href="https://github.com/jtfairbank/UTD-Student-Elections-2014/blob/master/COPYRIGHT.md">Copyright</a>
+    <p class="signature">
+      Made in Sweden with
+      <span id="hearts">
+        <img class="heart" src="lib/img/heart.png" alt="&lt;3 (red)" />
+        <img class="heart" src="static/img/heart/light-orange-FAA00A.png" alt="&lt;3 (light orange)" />
+        <img class="heart" src="static/img/heart/dark-orange-F05A00.png" alt="&lt;3 (dark orange)" />
+        <img class="heart" src="static/img/heart/green-008C52.png" alt="&lt;3 (green)" />
+      </span>
+      for my sister Nancy
+    </p>
+    <p class="copyright"><small><a href="https://github.com/jtfairbank/UTD-Student-Elections-2014/blob/master/COPYRIGHT.md">Copyright</a></small></p>
   </footer>
 
 
@@ -94,67 +103,116 @@
   <script src="static/js/bigFourBridge.js"></script>
 
   <script>
-    $(function() {
-      'use strict';
+  // hearts
+  $(function() {
+    'use strict';
 
-      var senators = [];
+    // TODO: test for multiple .hearts modules on one page- the elements may
+    //       all be included in $hearts, but I need to blink them at a per
+    //       module level, not globally
+    //
+    //       Ok for now, since we only have one .hearts.  I'll give it an id,
+    //       just to make it clear only one can be on a page now.  This is
+    //       actually a slightly faster approach (selecting an id), though it
+    //       doesn't matter at this scale.
+    //
+    //       overengineering ;)
 
+    // TODO: test
+    //
+    //       manual testing- it looks like it works *shrug*
+    //
+    //       Test efficiency on mobile- don't want to kill batter.  Once again,
+    //       overengineering at this scale, but certainly a concern with larger
+    //       more complex interfaces.  Or ones that take a lot of processing
+    //       power already (network i/o).
+    var switchHearts_IntervalID;
+    var $hearts = $("#hearts > .heart");
+    var show = 0;
 
-      /* Setup
-       * ------------------------------------------------------ */
-      $("#filter-year .btn").on('click.removeClassActive', function() {
-        $("#filter-year .btn").removeClass('active');
-        $("#filter-year .btn").off('click.removeClassActive');
+    var switcheroo = function () {
+      show++;
+      if (show == $hearts.length) {
+        show = 0;
+      }
+
+      $hearts.each(function(i) {
+        if (i == show) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
       });
+    };
+
+    switchHearts_IntervalID = setInterval(switcheroo, 1000);
+
+  });
+  </script>
+
+  <script>
+  // senators
+  $(function() {
+    'use strict';
+
+    var senators = [];
 
 
-      /* Load Senators
-       * ------------------------------------------------------ */
-      $.get("static/data/senators.csv")
-        .done(function(senatorsCSV) {
-          senators = Senator.importAllFromCSV(senatorsCSV);
-          senators = senators.sort(Senator.compareName);
-
-          for (var i = 0; i < senators.length; i++) {
-            var senator = senators[i];
-            var $senator = senator.getOverview();
-            $senator.data('index', i);
-            $("#senators").append($senator);
-          }
-
-          $("#filters").show();
-          $("#senators").show();
-          $("#contentLoadFailure").hide();
-        })
-
-        .fail(function() {
-          $("#filters").hide();
-          $("#senators").hide();
-          $("#contentLoadFailure").show();
-          // TODO: automated bug report
-        });
+    /* Setup
+     * ------------------------------------------------------ */
+    $("#filter-year .btn").on('click.removeClassActive', function() {
+      $("#filter-year .btn").removeClass('active');
+      $("#filter-year .btn").off('click.removeClassActive');
+    });
 
 
-      /* Filters
-       * ------------------------------------------------------ */
-      $("#filter-year .btn").click(function() {
-        var year = $(this).data('year');
+    /* Load Senators
+     * ------------------------------------------------------ */
+    $.get("static/data/senators.csv")
+      .done(function(senatorsCSV) {
+        senators = Senator.importAllFromCSV(senatorsCSV);
+        senators = senators.sort(Senator.compareName);
 
-        $(".senator").each(function() {
-          var i = $(this).data('index');
+        for (var i = 0; i < senators.length; i++) {
           var senator = senators[i];
+          var $senator = senator.getOverview();
+          $senator.data('index', i);
+          $("#senators").append($senator);
+        }
 
-          if (year == "all" || year == senator.year) {
-            $(this).show();
-          } else {
-            $(this).hide();
-          }
-        });
+        $("#filters").show();
+        $("#senators").show();
+        $("#contentLoadFailure").hide();
+      })
 
+      .fail(function() {
+        $("#filters").hide();
+        $("#senators").hide();
+        $("#contentLoadFailure").show();
+        // TODO: automated bug report
       });
 
+
+    /* Filters
+     * ------------------------------------------------------ */
+    $("#filter-year .btn").click(function() {
+      var year = $(this).data('year');
+
+      $(".senator").each(function() {
+        var i = $(this).data('index');
+        var senator = senators[i];
+
+        if (year == "all" || year == senator.year) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
 
     });
+
+
+  });
   </script>
 
   <!-- TODO: google analytics -->

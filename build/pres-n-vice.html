@@ -98,8 +98,17 @@
       </ul>
     </nav>
 
-    <p class="signature">Made in Sweden with <img src="lib/img/heart.png" alt="&lt;3" /> for my sister Nancy</p>
-    <p class="copyright"><small><a href="https://github.com/jtfairbank/UTD-Student-Elections-2014/blob/master/COPYRIGHT.md">Copyright</a>
+    <p class="signature">
+      Made in Sweden with
+      <span id="hearts">
+        <img class="heart" src="lib/img/heart.png" alt="&lt;3 (red)" />
+        <img class="heart" src="static/img/heart/light-orange-FAA00A.png" alt="&lt;3 (light orange)" />
+        <img class="heart" src="static/img/heart/dark-orange-F05A00.png" alt="&lt;3 (dark orange)" />
+        <img class="heart" src="static/img/heart/green-008C52.png" alt="&lt;3 (green)" />
+      </span>
+      for my sister Nancy
+    </p>
+    <p class="copyright"><small><a href="https://github.com/jtfairbank/UTD-Student-Elections-2014/blob/master/COPYRIGHT.md">Copyright</a></small></p>
   </footer>
 
 
@@ -109,6 +118,54 @@
   <script src="lib/jquery-csv/jquery.csv.js"></script>
   <script src="static/js/Senator.js"></script>
   <script src="static/js/bigFourBridge.js"></script>
+
+  <script>
+  // hearts
+  $(function() {
+    'use strict';
+
+    // TODO: test for multiple .hearts modules on one page- the elements may
+    //       all be included in $hearts, but I need to blink them at a per
+    //       module level, not globally
+    //
+    //       Ok for now, since we only have one .hearts.  I'll give it an id,
+    //       just to make it clear only one can be on a page now.  This is
+    //       actually a slightly faster approach (selecting an id), though it
+    //       doesn't matter at this scale.
+    //
+    //       overengineering ;)
+
+    // TODO: test
+    //
+    //       manual testing- it looks like it works *shrug*
+    //
+    //       Test efficiency on mobile- don't want to kill batter.  Once again,
+    //       overengineering at this scale, but certainly a concern with larger
+    //       more complex interfaces.  Or ones that take a lot of processing
+    //       power already (network i/o).
+    var switchHearts_IntervalID;
+    var $hearts = $("#hearts > .heart");
+    var show = 0;
+
+    var switcheroo = function () {
+      show++;
+      if (show == $hearts.length) {
+        show = 0;
+      }
+
+      $hearts.each(function(i) {
+        if (i == show) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    };
+
+    switchHearts_IntervalID = setInterval(switcheroo, 1000);
+
+  });
+  </script>
 
   <!-- TODO: google analytics -->
 </body>
