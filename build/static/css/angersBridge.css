@@ -21,6 +21,11 @@
 }
 
 
+.img-responsive {
+  display: inline-block;
+}
+
+
 .nav { }
   .nav > li > a { }
     .nav > li > a:hover {
@@ -38,6 +43,18 @@
     border-radius: 0px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+  }
+
+  @media (max-width: 767px) {
+    .nav.nav-pills > li > a,
+    .nav.nav-pills.nav-up > li > a,
+    .nav.nav-pills.nav-up > li > a {
+      border-radius: 10px;
+    }
+
+    .nav-justified > li > a {
+      margin-bottom: 0;
+    }
   }
 
 
@@ -58,18 +75,43 @@ a {
   }
 
 
-
 /* Sitewide
  * ========================================================================== */
- 
+
 .mainHeader { }
   .mainHeader .title {
     text-align: center;
   }
-  .mainHeader .title .logo {
+
+  .mainHeader .logo {
     /* selected to make the BB-circle match the senator's circular profile images */
-    height: 200px;
+    max-height: 200px;
   }
+
+  /* The space that .mainMenu's container has on a device with a 767px display
+   * is 736, due to .container's padding.
+   */
+  @media (max-width: 735px) {
+    .mainHeader .logo {
+      max-width: 300px;
+    }
+  }
+
+
+.mainMenu { }
+  @media (max-width: 767px) {
+    .mainMenu .nav {
+      text-align: center;
+    }
+
+    .mainMenu .nav > li {
+      display: block;
+      width: 200px;
+
+      margin: 0 auto;
+    }
+  }
+
 
 .mainContent {
   padding: 20px;
@@ -104,12 +146,10 @@ a {
 /* Modules
  * ========================================================================== */
 
-
 /* Banner
  * ------------------------------------------------------
  * A call to action, designed to be used as a page's main heading.
  */
-
 .banner {
   margin-top: 0;
 
@@ -141,6 +181,16 @@ a {
   display: inline-block;
 }
 
+.filter-year { }
+  /* The last button 'Grad Students' wraps at a width of 509px. */
+  @media (max-width: 509px) {
+    .filter-year .btn-group > .btn {
+      float: none;
+      margin-top: 10px;
+    }
+  }
+
+
 
 /* Mailchimp Signup Form
  * ------------------------------------------------------ */
@@ -149,6 +199,12 @@ a {
 }
   .mc_embed_signup .mc-embedded-subscribe-form {
     display: inline-block;
+  }
+
+  @media (max-width: 767px) {
+    .mc_embed_signup .mc-embedded-subscribe {
+      margin-top: 10px;
+    }
   }
 
 
@@ -185,17 +241,22 @@ a {
   margin-bottom: 20px;
 }
 
+.senator-profile-wrapper {
+  text-align: center;
+}
 
 .senator-profile {
   max-height: 200px;
-  max-width: 200px;
+  /* Left out for img-responsive to work- can't override max-width. */
+  /* max-width: 200px; */
   border-radius: 200px;
 
   margin-bottom: 10px;
 }
 .senator-profile-large {
   max-height: 400px;
-  max-width: 400px;
+  /* Left out for img-responsive to work- can't override max-width. */
+  /* max-width: 400px; */
   border-radius: 400px;
 }
 
