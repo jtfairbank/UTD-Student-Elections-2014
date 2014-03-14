@@ -119,54 +119,6 @@
   <script src="static/js/Senator.js"></script>
   <script src="static/js/bigFourBridge.js"></script>
 
-  <script>
-  // hearts
-  $(function() {
-    'use strict';
-
-    // TODO: test for multiple .hearts modules on one page- the elements may
-    //       all be included in $hearts, but I need to blink them at a per
-    //       module level, not globally
-    //
-    //       Ok for now, since we only have one .hearts.  I'll give it an id,
-    //       just to make it clear only one can be on a page now.  This is
-    //       actually a slightly faster approach (selecting an id), though it
-    //       doesn't matter at this scale.
-    //
-    //       overengineering ;)
-
-    // TODO: test
-    //
-    //       manual testing- it looks like it works *shrug*
-    //
-    //       Test efficiency on mobile- don't want to kill batter.  Once again,
-    //       overengineering at this scale, but certainly a concern with larger
-    //       more complex interfaces.  Or ones that take a lot of processing
-    //       power already (network i/o).
-    var switchHearts_IntervalID;
-    var $hearts = $("#hearts > .heart");
-    var show = 0;
-
-    var switcheroo = function () {
-      show++;
-      if (show == $hearts.length) {
-        show = 0;
-      }
-
-      $hearts.each(function(i) {
-        if (i == show) {
-          $(this).show();
-        } else {
-          $(this).hide();
-        }
-      });
-    };
-
-    switchHearts_IntervalID = setInterval(switcheroo, 1000);
-
-  });
-  </script>
-
   <!-- TODO: google analytics -->
 </body>
 
