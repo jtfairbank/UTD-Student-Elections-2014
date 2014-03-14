@@ -25,6 +25,10 @@
   display: inline-block;
 }
 
+h1 small {
+  display: block;
+}
+
 
 .nav { }
   .nav > li > a { }
@@ -98,7 +102,9 @@ a {
   }
 
 
-.mainMenu { }
+.mainMenu {
+  font-size: 18px;
+}
   @media (max-width: 767px) {
     .mainMenu .nav {
       text-align: center;
@@ -159,6 +165,28 @@ a {
   .banner .banner-em {
     color: #F05A00;
     font-style: normal;
+  }
+
+  .banner small {
+    margin-top: 5px;
+    font-weight: 300;
+  }
+
+
+.banner-large {
+  display: block;
+}
+.banner-small {
+  display: none;
+}
+  @media(max-width: 600px) {
+    .banner-large {
+      display: none;
+    }
+
+    .banner-small {
+      display: block;
+    }
   }
 
 
