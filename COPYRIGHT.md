@@ -1,4 +1,4 @@
-Copyright 2014, Taylor Faribank, Basically No Rights Reserved
+Copyright 2014, J. Taylor Faribank, Kinda Some Rights Reserved
 
 I do not own anything in `build/lib/`.  Thanks to all the great OSS coders out there.
 
