@@ -116,6 +116,9 @@ a {
 
       margin: 0 auto;
     }
+      .mainMenu .nav > li:last-child {
+        margin-bottom: 10px;
+      }
   }
 
 
