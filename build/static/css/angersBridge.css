@@ -16,6 +16,12 @@
 
 /* Bootstrap Overrides & Extensions
  * ------------------------------------------------------ */
+.alert.alert-vote {
+  background-color: rgba(250, 160, 10, .25);
+  border-color: rgba(250, 160, 10, .5);
+  color: #008C52;
+}
+
 .alert:last-child {
   margin-bottom: 0;
 }
@@ -129,6 +135,12 @@ a {
 }
   .mainContent > * {
     margin-bottom: 20px;
+  }
+  .mainContent > .alert.alert-vote {
+    width: 75%;
+    min-width: 244px; /* length of the link + padding and border, so it doesn't wrap halfway through */
+
+    font-size: 16px;
   }
 
 .mainFooter { }
